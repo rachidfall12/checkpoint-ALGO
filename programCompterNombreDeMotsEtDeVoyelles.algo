@@ -1,0 +1,74 @@
+program CompterNombreDeMotsEtDeVoyelles;
+
+var
+  nbrMots, nbrVoyelles: Integer;
+  phrase: String;
+  caractere: Char;
+
+begin
+  
+  // Initialisation des compteurs
+
+  nbrMots := 0;
+  nbrVoyelles := 0;
+
+  // Entrée de la phrase
+  
+  write('Entrez une phrase : ');
+  readln(phrase);
+
+  // Parcourir chaque caractère dans la phrase
+  
+  for caractere in phrase do
+  begin
+    // Mise à jour du nombre de voyelles dans le compteur (nbrVoyelles)
+    if caractere in ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'] then
+      nbrVoyelles := nbrVoyelles + 1;
+
+    // Mise à jour du nombre de mots dans le compteur (nbrMots)
+    if caractere = ' ' then
+      nbrMots := nbrMots + 1;
+  end;
+
+  // Afficher les résultats
+  
+  writeln('Nombre de mots dans la phrase : ', nbrMots + 1);
+  writeln('Nombre de voyelles dans la phrase : ', nbrVoyelles);
+
+end.
+
+
+program SommeElementsDistincts;
+
+var
+  ensemble1, ensemble2: array of Integer;
+  sum, element: Integer;
+
+begin
+
+  // Éléments ensemble1 et ensemble2
+
+  ensemble1 := [3, 1, 7, 9];
+  ensemble2 := [2, 4, 1, 9, 3];
+
+  // Somme des éléments distincts
+
+  sum := 0;
+
+  // Comparer chaque élément de l'ensemble 1 avec l'ensemble 2
+
+  for element in ensemble1 do
+    if not (element in ensemble2) then
+      sum := sum + element;
+
+  // Comparer chaque élément de l'ensemble 2 avec l'ensemble 1
+
+  for element in ensemble2 do
+    if not (element in ensemble1) then
+      sum := sum + element;
+
+  // Afficher le résultat
+
+  writeln('La somme des éléments distincts des deux ensembles est : ', sum);
+
+end.
